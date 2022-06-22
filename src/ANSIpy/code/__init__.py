@@ -1,8 +1,10 @@
 # Generic codes
-from .code import RESET
+from .code import RESET     # Default
+from .code import ANSICode  # Class
 
 # Color codes
-from .color import BLACK    # Default objects
+from .color import COLOR_STRINGS    # Default strings
+from .color import BLACK    # Default
 from .color import RED
 from .color import GREEN
 from .color import YELLOW
@@ -52,12 +54,13 @@ from .color import BLUE_BACKGROUND_AIXTERM_BRIGHT
 from .color import MAGENTA_BACKGROUND_AIXTERM_BRIGHT
 from .color import CYAN_BACKGROUND_AIXTERM_BRIGHT
 from .color import WHITE_BACKGROUND_AIXTERM_BRIGHT
-
-from .color import ANSIColor256     # Customizable classes
+from .color import ANSIColor    # Class
+from .color import ANSIColor256
 from .color import ANSIColorRGB
 
 # Mode codes
-from .effect import BOLD
+from .effect import EFFECT_STRINGS  # Default strings
+from .effect import BOLD    # Default
 from .effect import FAINT
 from .effect import ITALIC
 from .effect import UNDERLINE
@@ -65,3 +68,4 @@ from .effect import BLINKING
 from .effect import INVERSE
 from .effect import HIDDEN
 from .effect import STRIKETHROUGH
+from .effect import ANSIEffect  # Class

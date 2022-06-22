@@ -1,7 +1,7 @@
-from .code import _ANSICode
+from .code import ANSICode
 
 
-_EFFECTS = {
+EFFECT_STRINGS = {
     "BOLD": "\x1b[1m",
     "FAINT": "\x1b[2m",
     "ITALIC": "\x1b[3m",
@@ -21,26 +21,35 @@ _EFFECTS = {
 }
 
 
-class _ANSIEffect(_ANSICode):
+class ANSIEffect(ANSICode):
+    """
+    Class to model ANSI codes for effects
+    """
     reset: str
 
     def __init__(self, code: str, reset: str):
-        super(_ANSIEffect, self).__init__(code)
+        super(ANSIEffect, self).__init__(code)
         self.reset = reset
 
     def apply(self, string: str, reset_after: bool = True) -> str:
+        """
+        Apply the effect code to a string
+        :param string: string to be enriched
+        :param reset_after: if true add a reset code at the end
+        :return: the enriched string
+        """
         if reset_after:
-            return super(_ANSIEffect, self).apply(string + self.reset)
+            return super(ANSIEffect, self).apply(string + self.reset)
         else:
-            return super(_ANSIEffect, self).apply(string)
+            return super(ANSIEffect, self).apply(string)
 
 
-# Effect
-BOLD = _ANSIEffect(code=_EFFECTS['BOLD'], reset=_EFFECTS['BOLD_RESET'])
-FAINT = _ANSIEffect(code=_EFFECTS['FAINT'], reset=_EFFECTS['FAINT_RESET'])
-ITALIC = _ANSIEffect(code=_EFFECTS['ITALIC'], reset=_EFFECTS['ITALIC_RESET'])
-UNDERLINE = _ANSIEffect(code=_EFFECTS['UNDERLINE'], reset=_EFFECTS['UNDERLINE_RESET'])
-BLINKING = _ANSIEffect(code=_EFFECTS['BLINKING'], reset=_EFFECTS['BLINKING_RESET'])
-INVERSE = _ANSIEffect(code=_EFFECTS['INVERSE'], reset=_EFFECTS['INVERSE_RESET'])
-HIDDEN = _ANSIEffect(code=_EFFECTS['HIDDEN'], reset=_EFFECTS['HIDDEN_RESET'])
-STRIKETHROUGH = _ANSIEffect(code=_EFFECTS['STRIKETHROUGH'], reset=_EFFECTS['STRIKETHROUGH_RESET'])
+# Defaults
+BOLD = ANSIEffect(code=EFFECT_STRINGS['BOLD'], reset=EFFECT_STRINGS['BOLD_RESET'])
+FAINT = ANSIEffect(code=EFFECT_STRINGS['FAINT'], reset=EFFECT_STRINGS['FAINT_RESET'])
+ITALIC = ANSIEffect(code=EFFECT_STRINGS['ITALIC'], reset=EFFECT_STRINGS['ITALIC_RESET'])
+UNDERLINE = ANSIEffect(code=EFFECT_STRINGS['UNDERLINE'], reset=EFFECT_STRINGS['UNDERLINE_RESET'])
+BLINKING = ANSIEffect(code=EFFECT_STRINGS['BLINKING'], reset=EFFECT_STRINGS['BLINKING_RESET'])
+INVERSE = ANSIEffect(code=EFFECT_STRINGS['INVERSE'], reset=EFFECT_STRINGS['INVERSE_RESET'])
+HIDDEN = ANSIEffect(code=EFFECT_STRINGS['HIDDEN'], reset=EFFECT_STRINGS['HIDDEN_RESET'])
+STRIKETHROUGH = ANSIEffect(code=EFFECT_STRINGS['STRIKETHROUGH'], reset=EFFECT_STRINGS['STRIKETHROUGH_RESET'])

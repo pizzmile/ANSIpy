@@ -1,1 +1,1 @@
-import code
+from .print import ansiprint

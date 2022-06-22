@@ -1,12 +1,11 @@
-class _ANSICode:
+class ANSICode:
+    """
+    Class to model generic ANSI codes
+    """
     _code: str
-    # _fmt = "\x1b[{code}m"
 
     def __init__(self, code: str):
         self._code = code
-
-    def apply(self, string: str) -> str:
-        return self + string
 
     def __str__(self):
         return self._code
@@ -17,6 +16,14 @@ class _ANSICode:
     def __radd__(self, other):
         return other + self.__str__()
 
+    def apply(self, string: str) -> str:
+        """
+        Apply the code to a string
+        :param string: string to be enriched
+        :return: the enriched string
+        """
+        return self + string
 
-# GRAPHIC_MODE = "\x1b[1;34;{modes}m"
-RESET = _ANSICode("\x1b[0m")
+
+# Default
+RESET = ANSICode("\x1b[0m")
