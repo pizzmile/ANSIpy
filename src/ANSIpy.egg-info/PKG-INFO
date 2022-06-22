@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: ANSIpy
+Version: 0.0.2
+Summary: A simple package to manage easily ANSI codes
+Author-email: Giacomo Pizzamiglio <giacomo1.pizzamiglio@mail.polimi.it>
+Project-URL: Homepage, https://github.com/pizzmile/ANSIpy
+Project-URL: Bug Tracker, https://github.com/pizzmile/ANSIpy/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ANSIpy
+The purpose of this package is to manage easily ANSI codes.
+
+## Code
+`ANSICode` extends builtin string type to better represent single ANSI codes.
+
+## String
+`ANSIString` class extends builtin string type to enrich these objects with specific methods to apply ANSI codes and quick styles.
+
+## Style
+`ANSIStyle` class extends builtin string type to define custom quick styles to be applied to strings.
+
+## Print
+`ansiprint` is a function to quickly apply ANSI codes to strings while printing them.

@@ -1,14 +1,14 @@
-# ANSIpy
-The purpose of this package is to manage easily ANSI codes.
+<!-- ANSIpy documentation master file, created by
+sphinx-quickstart on Wed Jun 22 20:07:35 2022.
+You can adapt this file completely to your liking, but it should at least
+contain the root `toctree` directive. -->
+# Welcome to ANSIpy’s documentation!
+Complete but simple library to siplify the use of ANSI codes in Python.
 
-## Code
-`ANSICode` extends builtin string type to better represent single ANSI codes.
+# Contents:
 
-## String
-`ANSIString` class extends builtin string type to enrich these objects with specific methods to apply ANSI codes and quick styles.
 
-## Style
-`ANSIStyle` class extends builtin string type to define custom quick styles to be applied to strings.
+* [ANSIpy](modules.md)
 
-## Print
-`ansiprint` is a function to quickly apply ANSI codes to strings while printing them.
+
+    * [ANSIpy package](ANSIpy.md)
