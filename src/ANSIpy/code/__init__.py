@@ -58,7 +58,7 @@ from .color import ANSIColor    # Class
 from .color import ANSIColor256
 from .color import ANSIColorRGB
 
-# Mode codes
+# Effect codes
 from .effect import EFFECT_STRINGS  # Default strings
 from .effect import BOLD    # Default
 from .effect import FAINT
@@ -69,3 +69,9 @@ from .effect import INVERSE
 from .effect import HIDDEN
 from .effect import STRIKETHROUGH
 from .effect import ANSIEffect  # Class
+
+# Cursor codes
+from .cursor import POSITION_STRINGS  # Default
+from .cursor import ERASE_STRINGS
+from .cursor import CURSOR_MODES
+from .cursor import ANSICursor  # Class

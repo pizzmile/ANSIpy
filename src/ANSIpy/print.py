@@ -1,4 +1,5 @@
-# TODO: add function to print
+import sys
+
 from .code import ANSIColor, BOLD, UNDERLINE, ITALIC, INVERSE, FAINT, BLINKING, RESET, HIDDEN, STRIKETHROUGH
 from .style import ANSIStyle
 
@@ -27,5 +28,5 @@ def ansiprint(string: str, **kwargs) -> None:
     :return: None
     """
     tmp_style = ANSIStyle(**kwargs)
-    print(tmp_style.apply(string))
+    sys.stdout.write(tmp_style.apply(string))
 
