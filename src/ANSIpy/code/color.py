@@ -79,16 +79,19 @@ class ANSIColor(ANSICode):
     def __init__(self, code: str = None):
         """
         ANSIColor constructor
-        :param code: color code in string format
+
+        :param str code: color code in string format
         """
         super(ANSIColor, self).__init__(code)
 
     def apply(self, string: str, reset_after: bool = True) -> str:
         """
         Apply the color code to a string
-        :param string: string to be enriched
-        :param reset_after: if true add a reset code at the end
+
+        :param str string: string to be enriched
+        :param bool reset_after: if true add a reset code at the end
         :return: the enriched string
+        :rtype: str
         """
         if reset_after:
             return super(ANSIColor, self).apply(string + RESET)
@@ -107,11 +110,12 @@ class ANSIColorRGB(ANSIColor):
     def __init__(self, red: int = 0, green: int = 0, blue: int = 0, background: bool = False, hex_code: str = None):
         """
         ANSIColorRGB constructor
-        :param red: red channel value
-        :param green: green channel value
-        :param blue: blue channel value
-        :param background: if true create a background color, if false a foreground color
-        :param hex_code: hexadecimal representation f the code (overwrites 'red', 'green', 'blue' params)
+
+        :param int red: red channel value
+        :param int green: green channel value
+        :param int blue: blue channel value
+        :param bool background: if true create a background color, if false a foreground color
+        :param str hex_code: hexadecimal representation f the code (overwrites 'red', 'green', 'blue' params)
         """
         # Use RGB direct values if they are valid
         if red < 0 or red > 255:
@@ -153,8 +157,9 @@ class ANSIColor256(ANSIColor):
     def __init__(self, value: int, background: bool = False):
         """
         ANSIColor256 constructor
-        :param value: color id (0 to 255)
-        :param background: if true create a background color, if false a foreground color
+
+        :param int value: color id (0 to 255)
+        :param bool background: if true create a background color, if false a foreground color
         """
         if value < 0 or value > 255:
             raise ValueError("'code' must lies within 0 and 255 (included)")

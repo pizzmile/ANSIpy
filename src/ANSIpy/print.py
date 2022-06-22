@@ -7,7 +7,8 @@ from .style import ANSIStyle
 def ansiprint(string: str, **kwargs) -> None:
     """
     Print a string with the specified ANSI codes
-    :param string: string to print
+
+    :param str string: string to print
     :param kwargs: optional arguments to encode the color and the effects of 'string'
     :keyword foreground_color: name of the color to be applied as foreground
     :keyword background_color: name of the color to be applied as background
@@ -25,7 +26,8 @@ def ansiprint(string: str, **kwargs) -> None:
     :keyword italic: if true add italic effect
     :keyword reset_before: if true add a reset code at the beginning
     :keyword reset_after: if true add a reset code at the end
-    :return: None
+    :return:
+    :rtype: None
     """
     tmp_style = ANSIStyle(**kwargs)
     sys.stdout.write(tmp_style.apply(string))

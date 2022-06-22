@@ -28,15 +28,23 @@ class ANSIEffect(ANSICode):
     reset: str
 
     def __init__(self, code: str, reset: str):
+        """
+        ANSIEffect constructor
+
+        :param str code: the string format of the ANSI code
+        :param str reset: the string format of the ANSI specific reset code
+        """
         super(ANSIEffect, self).__init__(code)
         self.reset = reset
 
     def apply(self, string: str, reset_after: bool = True) -> str:
         """
         Apply the effect code to a string
-        :param string: string to be enriched
-        :param reset_after: if true add a reset code at the end
+
+        :param str string: string to be enriched
+        :param bool reset_after: if true add a reset code at the end
         :return: the enriched string
+        :rtype: str
         """
         if reset_after:
             return super(ANSIEffect, self).apply(string + self.reset)

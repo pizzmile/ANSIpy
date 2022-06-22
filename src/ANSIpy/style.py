@@ -8,25 +8,25 @@ class ANSIStyle:
     Class to model a collection of ANSI codes that define a custom style
     """
     __options: dict = {
-            "foreground_color": None,
-            "background_color": None,
-            "foreground_256": None,
-            "background_256": None,
-            "foreground_hex": None,
-            "background_hex": None,
-            "foreground_rgb": None,
-            "background_rgb": None,
-            "underline": False,
-            "bold": False,
-            "faint": False,
-            "inverse": False,
-            "blinking": False,
-            "italic": False,
-            "hidden": False,
-            "strikethrough": False,
-            "reset_before": True,
-            "reset_after": True
-        }
+        "foreground_color": None,
+        "background_color": None,
+        "foreground_256": None,
+        "background_256": None,
+        "foreground_hex": None,
+        "background_hex": None,
+        "foreground_rgb": None,
+        "background_rgb": None,
+        "underline": False,
+        "bold": False,
+        "faint": False,
+        "inverse": False,
+        "blinking": False,
+        "italic": False,
+        "hidden": False,
+        "strikethrough": False,
+        "reset_before": True,
+        "reset_after": True
+    }
 
     __foreground_color: ANSIColor
     __background_color: ANSIColor
@@ -43,24 +43,25 @@ class ANSIStyle:
 
     def __init__(self, **kwargs):
         """
+        ANSIStyle constructor
+
         :param kwargs: optional arguments to encode the color and the effects of 'string'
-        :keyword foreground_color: name of the color to be applied as foreground
-        :keyword background_color: name of the color to be applied as background
-        :keyword foreground_hex: hexadecimal code of the color to be applied as foreground (overwrite name colors)
-        :keyword background_hex: hexadecimal code of the color to be applied as background (overwrite name colors)
-        :keyword foreground_rgb: tuple containing (r, g, b) values for the color to be applied as foreground (overwrite hex
+        :keyword str foreground_color: name of the color to be applied as foreground
+        :keyword str background_color: name of the color to be applied as background
+        :keyword str foreground_hex: hexadecimal code of the color to be applied as foreground (overwrite name colors)
+        :keyword str background_hex: hexadecimal code of the color to be applied as background (overwrite name colors)
+        :keyword tuple[int] foreground_rgb: tuple containing (r, g, b) values for the color to be applied as foreground (overwrite hex
         and name colors)
-        :keyword background_rgb: tuple containing (r, g, b) values for the color to be applied as background (overwrite hex
+        :keyword tuple[int] background_rgb: tuple containing (r, g, b) values for the color to be applied as background (overwrite hex
         and name colors)
-        :keyword underline: if true add underline effect
-        :keyword bold: if true add bold effect
-        :keyword faint: if true add faint effect
-        :keyword inverse: if true add reverse effect
-        :keyword blinking: if true add blink effect
-        :keyword italic: if true add italic effect
-        :keyword reset_before: if true add a reset code at the beginning
-        :keyword reset_after: if true add a reset code at the end
-        :param kwargs:
+        :keyword bool underline: if true add underline effect
+        :keyword bool bold: if true add bold effect
+        :keyword bool faint: if true add faint effect
+        :keyword bool inverse: if true add reverse effect
+        :keyword bool blinking: if true add blink effect
+        :keyword bool italic: if true add italic effect
+        :keyword bool reset_before: if true add a reset code at the beginning
+        :keyword bool reset_after: if true add a reset code at the end
         """
         self.__options.update(kwargs)
 
@@ -124,16 +125,21 @@ class ANSIStyle:
     def apply(self, string):
         """
         Apply the style to 'string'
-        :param string: string to enrich
+
+        :param str string: string to enrich
         :return: the enriched string
+        :rtype: str
         """
         return self.__str__().format(string=string)
 
     def set_foreground_color(self, value: ANSIColor) -> None:
         """
         Set foreground_color property
+
         :param value: value to be set for the property
-        :return: None
+        :type value: ANSIColor
+        :return:
+        :rtype: None
         """
         self.__options['foreground_color'] = value
         self.__foreground_color = value
@@ -141,8 +147,11 @@ class ANSIStyle:
     def set_background_color(self, value: ANSIColor) -> None:
         """
         Set background_color property
+
         :param value: value to be set for the property
-        :return: None
+        :type value: ANSIColor
+        :return:
+        :rtype: None
         """
         self.__options['background_color'] = value
         self.__background_color = value
@@ -150,8 +159,10 @@ class ANSIStyle:
     def set_underline(self, value: bool) -> None:
         """
         Set underline property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['underline'] = value
         self.__underline = value
@@ -159,8 +170,10 @@ class ANSIStyle:
     def set_bold(self, value: bool) -> None:
         """
         Set bold property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['bold'] = value
         self.__bold = value
@@ -168,8 +181,10 @@ class ANSIStyle:
     def set_faint(self, value: bool) -> None:
         """
         Set faint property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['faint'] = value
         self.__faint = value
@@ -177,8 +192,10 @@ class ANSIStyle:
     def set_inverse(self, value: bool) -> None:
         """
         Set inverse property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['inverse'] = value
         self.__inverse = value
@@ -186,8 +203,10 @@ class ANSIStyle:
     def set_blinking(self, value: bool) -> None:
         """
         Set blinking property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['blinking'] = value
         self.__blinking = value
@@ -195,8 +214,10 @@ class ANSIStyle:
     def set_italic(self, value: bool) -> None:
         """
         Set italic property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['italic'] = value
         self.__italic = value
@@ -204,8 +225,10 @@ class ANSIStyle:
     def set_hidden(self, value: bool) -> None:
         """
         Set hidden property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['hidden'] = value
         self.__hidden = value
@@ -213,8 +236,10 @@ class ANSIStyle:
     def set_strikethrough(self, value: bool) -> None:
         """
         Set strikethrough property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['strikethrough'] = value
         self.__strikethrough = value
@@ -222,8 +247,10 @@ class ANSIStyle:
     def set_reset_before(self, value: bool) -> None:
         """
         Set reset_before property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['reset_before'] = value
         self.__reset_before = value
@@ -231,94 +258,118 @@ class ANSIStyle:
     def set_reset_after(self, value: bool) -> None:
         """
         Set reset_after property
-        :param value: value to be set for the property
-        :return: None
+
+        :param bool value: value to be set for the property
+        :return:
+        :rtype: None
         """
         self.__options['reset_after'] = value
         self.__reset_after = value
 
-
     def get_foreground_color(self) -> ANSIColor:
         """
         Get the value of the property foreground_color
-        :return: None
+
+        :return: foreground_color attribute
+        :rtype: ANSIColor
         """
         return self.__foreground_color
 
     def get_background_color(self) -> ANSIColor:
         """
         Get the value of the property background_color
-        :return: None
+
+        :return: background_color attribute
+        :rtype: ANSIColor
         """
         return self.__background_color
 
     def get_underline(self) -> bool:
         """
         Get the value of the property underline
-        :return: None
+
+        :return: underline attribute
+        :rtype: bool
         """
         return self.__underline
 
     def get_bold(self) -> bool:
         """
         Get the value of the property bold
-        :return: None
+
+        :return: f attribute
+        :rtype: bool
         """
         return self.__bold
 
     def get_faint(self) -> bool:
         """
         Get the value of the property faint
-        :return: None
+
+        :return: faint attribute
+        :rtype: bool
         """
         return self.__faint
 
     def get_inverse(self) -> bool:
         """
         Get the value of the property inverse
-        :return: None
+
+        :return: inverse attribute
+        :rtype: bool
         """
         return self.__inverse
 
     def get_blinking(self) -> bool:
         """
         Get the value of the property blinking
-        :return: None
+
+        :return: blinking attribute
+        :rtype: bool
         """
         return self.__blinking
 
     def get_italic(self) -> bool:
         """
         Get the value of the property italic
-        :return: None
+
+        :return: italic attribute
+        :rtype: bool
         """
         return self.__italic
 
     def get_hidden(self) -> bool:
         """
         Get the value of the property hidden
-        :return: None
+
+        :return: hidden attribute
+        :rtype: bool
         """
         return self.__hidden
 
     def get_strikethrough(self) -> bool:
         """
         Get the value of the property strikethrough
-        :return: None
+
+        :return: strikethrough attribute
+        :rtype: bool
         """
         return self.__strikethrough
 
     def get_reset_before(self) -> bool:
         """
         Get the value of the property reset_before
-        :return: None
+
+        :return: reset_before attribute
+        :rtype: bool
         """
         return self.__reset_before
 
     def get_reset_after(self) -> bool:
         """
         Get the value of the property reset_after
-        :return: None
+
+        :return: reset_after attribute
+        :rtype: bool
         """
         return self.__reset_after
-

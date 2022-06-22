@@ -60,9 +60,11 @@ class ANSICursor:
         NEXT_LINE - Move the cursor N lines after (params: n)
         PREV_LINE - Move the cursor N lines before (params: n)
         COLUMN - Move the cursor to the column N (params: n)
-        :param command: determine how to move the cursor
+
+        :param str command: determine how to move the cursor
         :param kwargs: optional arguments for movement
-        :return: None
+        :return:
+        :rtype: None
         """
         try:
             if len(kwargs) > 0:
@@ -85,7 +87,9 @@ class ANSICursor:
     def save_position() -> None:
         """
         Save the position of the cursor
-        :return: None
+
+        :return:
+        :rtype: None
         """
         sys.stdout.write(POSITION_STRINGS["SAVE_POSITION"])
 
@@ -93,7 +97,9 @@ class ANSICursor:
     def restore_position() -> None:
         """
         Restore the position of the cursor
-        :return: None
+
+        :return:
+        :rtype: None
         """
         sys.stdout.write(POSITION_STRINGS["RESTORE_POSITION"])
 
@@ -111,8 +117,10 @@ class ANSICursor:
         UNTIL_END_LINE
         FROM_START_LINE
         LINE
-        :param command: specify the erase mode
-        :return: None
+
+        :param str command: specify the erase mode
+        :return:
+        :rtype: None
         """
         try:
             sys.stdout.write(ERASE_STRINGS[command])
@@ -141,9 +149,10 @@ class ANSICursor:
         17 =>  40 x 480 monochrome (2-color graphics)
         18 =>  40 x 480 color (16-color graphics)
         19 =>  20 x 200 color (256-color graphics)
-        :param mode_id: id of the mode
-        :type mode_id: int
-        :return: None
+
+        :param int mode_id: id of the mode
+        :return:
+        :rtype: None
         """
         if mode_id < 0 or mode_id > 19:
             raise ValueError("'mode_id' must be grater than 0 and lesser or equal than 19")
@@ -154,8 +163,10 @@ class ANSICursor:
     def set_cursor_visibility(value: bool) -> None:
         """
         Change cursor visibility
-        :param value: if true set the cursor visible, if false invisible
-        :return: None
+
+        :param bool value: if true set the cursor visible, if false invisible
+        :return:
+        :rtype: None
         """
         if value:
             sys.stdout.write(CURSOR_MODES['VISIBLE'])
@@ -166,7 +177,9 @@ class ANSICursor:
     def save_screen() -> None:
         """
         Save the screen
-        :return: None
+
+        :return:
+        :rtype: None
         """
         sys.stdout.write(SAVE_SCREEN)
 
@@ -174,6 +187,8 @@ class ANSICursor:
     def restore_screen() -> None:
         """
         Restore the saved screen
-        :return: None
+
+        :return:
+        :rtype: None
         """
         sys.stdout.write(RESTORE_SCREEN)

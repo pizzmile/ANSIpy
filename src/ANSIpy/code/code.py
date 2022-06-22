@@ -19,9 +19,16 @@ class ANSICode:
     def apply(self, string: str) -> str:
         """
         Apply the code to a string
-        :param string: string to be enriched
-        :return: the enriched string
+
+        Parameters:
+            string (str): string to be enriched
+
+        Returns:
+            the enriched string (str)
         """
+        # :param str string: string to be enriched
+        # :return: the enriched string
+        # :rtype: str
         return self + string
 
 
