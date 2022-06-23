@@ -3,6 +3,7 @@ sphinx-quickstart on Wed Jun 22 20:07:35 2022.
 You can adapt this file completely to your liking, but it should at least
 contain the root `toctree` directive. -->
 # Welcome to ANSIpy’s documentation!
+Complete but simple library to siplify the use of ANSI codes in Python.
 
 # Contents:
 
@@ -11,15 +12,3 @@ contain the root `toctree` directive. -->
 
 
     * [ANSIpy package](ANSIpy.md)
-
-
-# Indices and tables
-
-
-* [Index](genindex.md)
-
-
-* [Module Index](py-modindex.md)
-
-
-* [Search Page](search.md)
