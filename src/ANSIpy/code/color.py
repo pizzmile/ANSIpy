@@ -118,6 +118,7 @@ class ANSIColorRGB(ANSIColor):
         :param str hex_code: hexadecimal representation f the code (overwrites 'red', 'green', 'blue' params)
         """
         # Use RGB direct values if they are valid
+        print(type(red))
         if red < 0 or red > 255:
             raise ValueError("'r' must lies within 0 and 255 (included)")
         if green < 0 or green > 255:

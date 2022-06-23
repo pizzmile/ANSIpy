@@ -8,7 +8,7 @@ Complete but simple library to siplify the use of ANSI codes in Python.
 # Contents:
 
 
-* [ANSIpy](modules.md)
+* [ANSIpy](docs/markdown/modules.md)
 
 
     * [ANSIpy package](ANSIpy.md)

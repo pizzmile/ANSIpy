@@ -74,9 +74,9 @@ class ANSIStyle:
         if self.__options['foreground_hex'] is not None:
             foreground_color = ANSIColorRGB(hex_code=self.__options["foreground_color"])
         if self.__options['foreground_rgb'] is not None:
-            foreground_color = ANSIColorRGB(red=self.__options["foreground_color"][0],
-                                            green=self.__options["foreground_color"][1],
-                                            blue=self.__options["foreground_color"][2])
+            foreground_color = ANSIColorRGB(red=tuple(self.__options["foreground_color"])[0],
+                                            green=tuple(self.__options["foreground_color"])[1],
+                                            blue=tuple(self.__options["foreground_color"])[2])
         output_string = foreground_color
 
         background_color = ""
@@ -87,9 +87,9 @@ class ANSIStyle:
         if self.__options['background_hex'] is not None:
             background_color = ANSIColorRGB(hex_code=self.__options["background_color"], background=True)
         if self.__options['background_rgb'] is not None:
-            background_color = ANSIColorRGB(red=self.__options["background_color"][0],
-                                            green=self.__options["background_color"][1],
-                                            blue=self.__options["background_color"][2],
+            background_color = ANSIColorRGB(red=tuple(self.__options["background_color"])[0],
+                                            green=tuple(self.__options["background_color"])[1],
+                                            blue=tuple(self.__options["background_color"])[2],
                                             background=True)
         output_string += background_color
 
