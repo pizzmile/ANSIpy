@@ -7,7 +7,7 @@ contain the root `toctree` directive. -->
 # Contents:
 
 
-* [ANSIpy](modules.md)
+* [ANSIpy](docs/markdown/modules.md)
 
 
     * [ANSIpy package](ANSIpy.md)
