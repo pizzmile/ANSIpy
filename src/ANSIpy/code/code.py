@@ -24,11 +24,8 @@ class ANSICode:
             string (str): string to be enriched
 
         Returns:
-            the enriched string (str)
+            str: the enriched string
         """
-        # :param str string: string to be enriched
-        # :return: the enriched string
-        # :rtype: str
         return self + string
 
 
