@@ -1,0 +1,45 @@
+ANSIpy package
+==============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   ANSIpy.code
+
+Submodules
+----------
+
+ANSIpy.print module
+-------------------
+
+.. automodule:: ANSIpy.print
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ANSIpy.string module
+--------------------
+
+.. automodule:: ANSIpy.string
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ANSIpy.style module
+-------------------
+
+.. automodule:: ANSIpy.style
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: ANSIpy
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+ANSIpy
+======
+
+.. toctree::
+   :maxdepth: 4
+
+   ANSIpy
