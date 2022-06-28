@@ -107,7 +107,7 @@ class ANSIColorRGB(ANSIColor):
     green: int
     blue: int
 
-    def __init__(self, red: int = 0, green: int = 0, blue: int = 0, background: bool = False, hex_code: str = None):
+    def __init__(self, red: int = 0, green: int = 0, blue: int = 0, background: bool = False):
         """
         ANSIColorRGB constructor
 
@@ -115,10 +115,8 @@ class ANSIColorRGB(ANSIColor):
         :param int green: green channel value
         :param int blue: blue channel value
         :param bool background: if true create a background color, if false a foreground color
-        :param str hex_code: hexadecimal representation f the code (overwrites 'red', 'green', 'blue' params)
         """
         # Use RGB direct values if they are valid
-        print(type(red))
         if red < 0 or red > 255:
             raise ValueError("'r' must lies within 0 and 255 (included)")
         if green < 0 or green > 255:
@@ -126,15 +124,6 @@ class ANSIColorRGB(ANSIColor):
         if blue < 0 or blue > 255:
             raise ValueError("'b' must lies within 0 and 255 (included)")
         r, g, b = red, green, blue
-
-        # Use hex_code if it is given and valid
-        if hex_code is not None:
-            try:
-                h = hex_code.lstrip('#')
-                r, g, b = tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
-            except Exception as e:
-                print(e)
-                raise (ValueError("'hex_code' in wrong format (required 'hex_code'=#CODE)"))
 
         # Store values in object
         self.red = r
@@ -147,6 +136,36 @@ class ANSIColorRGB(ANSIColor):
 
     def __str__(self):
         return self._code.format(r=self.red, g=self.green, b=self.blue)
+
+
+class ANSIColorHEX(ANSIColorRGB):
+    """
+    Class to model ANSI codes for HEX color
+    """
+    red: int
+    green: int
+    blue: int
+
+    def __init__(self, hex_code: str, background: bool = False):
+        """
+        ANSIColorHex constructor
+
+        :param bool background: if true create a background color, if false a foreground color
+        :param str hex_code: hexadecimal representation f the code (overwrites 'red', 'green', 'blue' params)
+        """
+
+        # Convert hex code into RGB values
+        try:
+            h = hex_code.lstrip('#')
+            if not len(h) == 6:
+                raise ValueError("'hex_code' in wrong format (required 'hex_code'=#6_CHAR_CODE")
+
+            r, g, b = tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+        except Exception as e:
+            raise (ValueError("'hex_code' in wrong format (required 'hex_code'=#6_CHAR_CODE)"))
+
+        # Build object
+        super(ANSIColorHEX, self).__init__(red=r, green=g, blue=b, background=background)
 
 
 class ANSIColor256(ANSIColor):

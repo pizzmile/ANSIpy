@@ -7,81 +7,67 @@ class ANSIString(str):
     Class to model string type that implement specific method to add ANSI style codes
     """
 
-    def fg_color_16bit(self, name: str):
+    def color_16bit(self, name: str, background: bool = False):
         """
-        Colorize the foreground of the string
+        Colorize the string from standard color code
 
+        :param bool background: if true change the background color, if false change the foreground
         :param str name: name of the 16bit color
         :return: the colored string
         :rtype: ANSIString
         """
-        color_code = ANSIColor(COLOR_STRINGS['FOREGROUND_16'][name])
-        return ANSIString(color_code.apply(self))
+        try:
+            if not background:
+                color_code = ANSIColor(COLOR_STRINGS['FOREGROUND_16'][name])
+            else:
+                color_code = ANSIColor(COLOR_STRINGS['BACKGROUND_16'][name])
+            return ANSIString(color_code.apply(self))
+        except KeyError as e:
+            raise ValueError(f"Unknown color name '{name}'")
 
-    def fg_color_rgb(self, red: int, green: int, blue: int):
+    def color_rgb(self, red: int, green: int, blue: int, background: bool = False):
         """
-        Colorize the foreground of the string
+        Colorize the string from RGB code
 
+        :param bool background: if true change the background color, if false change the foreground
         :param int red: red channel value
         :param int green: green channel value
         :param int blue: blue channel value
         :return: the colored string
         :rtype: ANSIString
         """
-        color_code = ANSIColorRGB(red=red, green=green, blue=blue)
+        color_code = ANSIColorRGB(red=red, green=green, blue=blue, background=background)
         return ANSIString(color_code.apply(self))
 
-    def fg_color_hex(self, hex_code: str):
+    def color_hex(self, hex_code: str, background: bool = False):
         """
-        Colorize the foreground of the string
+        Colorize the string from HEX code
 
         :param str hex_code: hexadecimal color code
+        :param bool background: if true change the background color, if false change the foreground
         :return: the colored string
         :rtype: ANSIString
         """
-        color_code = ANSIColorRGB(hex_code=hex_code)
+        color_code = ANSIColorHEX(hex_code=hex_code, background=background)
         return ANSIString(color_code.apply(self))
 
-    def bg_color_16bit(self, name: str):
+    def color_256bit(self, value: int, background: bool = False):
         """
-        Colorize the background of the string
+        Colorize the string from extended color code
 
-        :param name: name of the 16bit color
+        :param bool background: if true change the background color, if false change the foreground
+        :param int value: the integer value corresponding to the color in extended 256 colors ANSI encoding
         :return: the colored string
         :rtype: ANSIString
         """
-        color_code = ANSIColor(COLOR_STRINGS['BACKGROUND_16'][name])
+        color_code = ANSIColor256(value=value, background=background)
         return ANSIString(color_code.apply(self))
 
-    def bg_color_rgb(self, red: int, green: int, blue: int):
-        """
-        Colorize the background of the string
-
-        :param red: red channel value
-        :param green: green channel value
-        :param blue: blue channel value
-        :return: the colored string
-        :rtype: ANSIString
-        """
-        color_code = ANSIColorRGB(red=red, green=green, blue=blue, background=True)
-        return ANSIString(color_code.apply(self))
-
-    def bg_color_hex(self, hex_code: str):
-        """
-        Colorize the background of the string
-
-        :param hex_code: hexadecimal color code
-        :return: the colored string
-        :rtype: ANSIString
-        """
-        color_code = ANSIColorRGB(hex_code=hex_code, background=True)
-        return ANSIString(color_code.apply(self))
-
-    def stylize(self, style: ANSIStyle):
+    def apply_style(self, style: ANSIStyle):
         """
         Apply a style to the string
 
-        :param style:
+        :param style: the style to apply
         :type style: ANSIStyle
         :return: the styled string
         :rtype: ANSIString

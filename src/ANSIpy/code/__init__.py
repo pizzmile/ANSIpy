@@ -57,6 +57,7 @@ from .color import WHITE_BACKGROUND_AIXTERM_BRIGHT
 from .color import ANSIColor    # Class
 from .color import ANSIColor256
 from .color import ANSIColorRGB
+from .color import ANSIColorHEX
 
 # Effect codes
 from .effect import EFFECT_STRINGS  # Default strings
