@@ -1,2 +1,4 @@
-./docs/sphinx
+./docs
+!./docs/build/html
+!./docs/build/markdown
 ./venv

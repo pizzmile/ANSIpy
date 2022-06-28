@@ -1,0 +1,45 @@
+ANSIpy.code package
+===================
+
+Submodules
+----------
+
+ANSIpy.code.code module
+-----------------------
+
+.. automodule:: ANSIpy.code.code
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ANSIpy.code.color module
+------------------------
+
+.. automodule:: ANSIpy.code.color
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ANSIpy.code.cursor module
+-------------------------
+
+.. automodule:: ANSIpy.code.cursor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ANSIpy.code.effect module
+-------------------------
+
+.. automodule:: ANSIpy.code.effect
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: ANSIpy.code
+   :members:
+   :undoc-members:
+   :show-inheritance:
